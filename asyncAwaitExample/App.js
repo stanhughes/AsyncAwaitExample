@@ -1,5 +1,7 @@
 /**
- * Sample React Native App
+ * Dos Amigos Software
+ * Stan Hughes
+ *
  * https://github.com/facebook/react-native
  *
  * @format
@@ -18,11 +20,37 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      msg: '',
+    };
+  }
+
+  // A function using a promise and a delay
+  scaryClown() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+          resolve('🤡');
+        }, 3000);
+    });
+  }
+
+  // an async function that can use the 'await'
+  // if the 'async' keyword is missing, 'await' causes the following error.
+  //
+  async msg() {
+    const msg = await this.scaryClown();
+    this.setState({msg: msg});
+  }
+
   render() {
+    this.msg();
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <Text style={styles.welcome}>Await/Async/Promise example</Text>
+        <Text style={styles.instructions}>{this.state.msg}</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
