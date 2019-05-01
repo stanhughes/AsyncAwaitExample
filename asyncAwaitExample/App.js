@@ -1,5 +1,7 @@
 /**
- * Sample React Native App
+ * Dos Amigos Software
+ * Stan Hughes
+ *
  * https://github.com/facebook/react-native
  *
  * @format
@@ -25,6 +27,7 @@ export default class App extends Component<Props> {
       msg: '',
     };
   }
+
   // A function using a promise and a delay
   scaryClown() {
     return new Promise(resolve => {
@@ -34,6 +37,9 @@ export default class App extends Component<Props> {
     });
   }
 
+  // an async function that can use the 'await'
+  // if the 'async' keyword is missing, 'await' causes the following error.
+  //
   async msg() {
     const msg = await this.scaryClown();
     this.setState({msg: msg});
