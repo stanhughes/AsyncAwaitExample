@@ -39,7 +39,7 @@ export default class App extends Component<Props> {
 
   // an async function that can use the 'await'
   // if the 'async' keyword is missing, 'await' causes the following error.
-  //
+  // "Can not use keyword 'await' outside an async function"
   async msg() {
     const msg = await this.scaryClown();
     this.setState({msg: msg});
